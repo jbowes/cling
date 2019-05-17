@@ -4,7 +4,7 @@
   readable.
 -->
 <h1 align="center">cling</h1>
-<p align="center"><i>Clear and obvious error wrapping for <a href="https://golang.org">Go</a> errors</i></p>
+<p align="center"><i>Clear and obvious wrapping for <a href="https://golang.org">Go</a> error values</i></p>
 
 <div align="center">
   <a href="https://godoc.org/github.com/jbowes/cling"><img src="https://godoc.org/github.com/jbowes/cling?status.svg" alt="GoDoc"></a>
