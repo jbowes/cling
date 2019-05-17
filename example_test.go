@@ -26,6 +26,18 @@ func Example_nil() {
 	// Output: <nil>
 }
 
+func ExampleNew() {
+	err := cling.New("an error")
+	fmt.Print(err)
+	// Output: an error
+}
+
+func ExampleErrorf() {
+	err := cling.Errorf("an error for %s", "you")
+	fmt.Print(err)
+	// Output: an error for you
+}
+
 func ExampleWrap() {
 	err := errors.New("an error")
 	wrapped := cling.Wrap(err, "wrapped")

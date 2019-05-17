@@ -6,7 +6,31 @@ import (
 	"golang.org/x/xerrors"
 )
 
-// Wrap returns an error wrapping err with the supplied message, and a frame
+// New returns an error with the supplied text, and a frame from the caller's
+// stack. The argument skip is the number of frames to skip over. Caller(0)
+// returns the frame for the caller of New.
+//
+// This func is intended to be used for implementing APIs on top of cling.
+func New(skip uint, text string) error {
+	return &sealError{
+		msg:   text,
+		frame: xerrors.Caller(int(skip + 1)),
+	}
+}
+
+// Errorf returns an error with the supplied format specifier, and a frame
+// from the caller's stack. The argument skip is the number of frames to skip
+// over. Caller(0) returns the frame for the caller of Errorf.
+//
+// This func is intended to be used for implementing APIs on top of cling.
+func Errorf(skip uint, format string, a ...interface{}) error {
+	return &sealError{
+		msg:   fmt.Sprintf(format, a...),
+		frame: xerrors.Caller(int(skip + 1)),
+	}
+}
+
+// Wrap returns an error wrapping err with the supplied text, and a frame
 // from the caller's stack. The argument skip is the number of frames to skip
 // over. Caller(0) returns the frame for the caller of Wrap. If err is nil, Wrap
 // returns nil.
@@ -15,13 +39,13 @@ import (
 // extracting the error chain.
 //
 // This func is intended to be used for implementing APIs on top of cling.
-func Wrap(err error, skip uint, message string) error {
+func Wrap(err error, skip uint, text string) error {
 	if err == nil {
 		return nil
 	}
 
 	return &wrapError{sealError{
-		msg:   message,
+		msg:   text,
 		err:   err,
 		frame: xerrors.Caller(int(skip + 1)),
 	}}
@@ -48,7 +72,7 @@ func Wrapf(err error, skip uint, format string, a ...interface{}) error {
 	}}
 }
 
-// Seal returns an error wrapping err with the supplied message, and a frame
+// Seal returns an error wrapping err with the supplied text, and a frame
 // from the caller's stack. The argument skip is the number of frames to skip
 // over. Caller(0) returns the frame for the caller of Wrap. If err is nil, Wrap
 // returns nil.
@@ -57,13 +81,13 @@ func Wrapf(err error, skip uint, format string, a ...interface{}) error {
 // only for printing.
 //
 // This func is intended to be used for implementing APIs on top of cling.
-func Seal(err error, skip uint, message string) error {
+func Seal(err error, skip uint, text string) error {
 	if err == nil {
 		return nil
 	}
 
 	return &sealError{
-		msg:   message,
+		msg:   text,
 		err:   err,
 		frame: xerrors.Caller(int(skip + 1)),
 	}
