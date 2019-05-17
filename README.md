@@ -64,7 +64,7 @@ error caller frames.
 
 
 ## Contributing
-[Introduction] | [Examples] | [Usage] | Contributing <br /><br />
+[Introduction] | [Examples] | Contributing <br /><br />
 
 I would love your help!
 
