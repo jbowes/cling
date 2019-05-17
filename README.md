@@ -10,7 +10,7 @@
   <a href="https://godoc.org/github.com/jbowes/cling"><img src="https://godoc.org/github.com/jbowes/cling?status.svg" alt="GoDoc"></a>
   <img alt="Alpha Quality" src="https://img.shields.io/badge/status-ALPHA-orange.svg" >
   <a href="https://travis-ci.com/jbowes/cling"><img alt="Build Status" src="https://travis-ci.com/jbowes/cling.svg?branch=master"></a>
-  <a href="https://github.com/jbowes/cling/releases/latest"><img alt="GitHub release" src="https://img.shields.io/github/release/jbowes/cling.svg"></a>
+  <a href="https://github.com/jbowes/cling/releases/latest"><img alt="GitHub tag" src="https://img.shields.io/github/tag/jbowes/cling.svg"></a>
   <a href="./LICENSE"><img alt="BSD license" src="https://img.shields.io/badge/license-BSD-blue.svg"></a>
   <a href="https://codecov.io/gh/jbowes/cling"><img alt="codecov" src="https://img.shields.io/codecov/c/github/jbowes/cling.svg"></a>
   <a href="https://goreportcard.com/report/github.com/jbowes/cling"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/jbowes/cling"></a>
