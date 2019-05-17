@@ -9,8 +9,6 @@ import "github.com/jbowes/cling/skip"
 //
 // The error returned implments the Unwrap method, for programatically
 // extracting the error chain.
-//
-// This func is intended to be used for implementing APIs on top of cling.
 func Wrap(err error, message string) error { return skip.Wrap(err, 1, message) }
 
 // Wrapf returns an error wrapping err with the supplied format specifier, and a
