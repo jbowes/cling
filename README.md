@@ -47,7 +47,7 @@ fmt.Print(xerrors.Is(wrapped, err)) // true
 _Sealing an error_
 ```go
 err := errors.New("an error")
-sealed := cling.Wrap(err, "sealed")
+sealed := cling.Seal(err, "sealed")
 
 // Sealed errors cannot be programatically inspected
 fmt.Print(xerrors.Is(sealed, err)) // false
